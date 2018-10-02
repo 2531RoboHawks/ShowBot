@@ -7,11 +7,12 @@
 
 package org.usfirst.frc.team2531.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team2531.robot.Robot;
 
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
- * An example command.  You can replace me with your own command.
+ * An example command. You can replace me with your own command.
  */
 public class ExampleCommand extends Command {
 	public ExampleCommand() {
@@ -27,6 +28,13 @@ public class ExampleCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
+		double left = Robot.m_oi.joystick.getRawAxis(1) - Robot.m_oi.joystick.getRawAxis(0);
+		double right = Robot.m_oi.joystick.getRawAxis(1) + Robot.m_oi.joystick.getRawAxis(0);
+		if (Math.abs(left) > 0.1 || Math.abs(right) > 0.1) {
+			Robot.m_subsystem.tankDrive(left, right);
+		} else {
+			Robot.m_subsystem.stop();
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -38,11 +46,13 @@ public class ExampleCommand extends Command {
 	// Called once after isFinished returns true
 	@Override
 	protected void end() {
+		Robot.m_subsystem.stop();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	@Override
 	protected void interrupted() {
+		end();
 	}
 }
