@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2531.robot;
 
-import org.usfirst.frc.team2531.robot.subsystems.Arm;
 import org.usfirst.frc.team2531.robot.subsystems.Drive;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -9,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 public class Robot extends TimedRobot {
 	// subsystem declarations for access
 	public static Drive drive = new Drive();
-	public static Arm arm = new Arm();
 	// OI class declarations
 	public static OI oi;
 
