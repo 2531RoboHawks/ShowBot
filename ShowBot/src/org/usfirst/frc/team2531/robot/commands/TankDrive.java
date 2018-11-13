@@ -18,8 +18,8 @@ public class TankDrive extends Command {
 
 	@Override
 	protected void execute() {
-		double left = Robot.oi.joystick.getRawAxis(1) - Robot.oi.joystick.getRawAxis(0);// value for left motors
-		double right = Robot.oi.joystick.getRawAxis(1) + Robot.oi.joystick.getRawAxis(0);// value for right motors
+		double left = Robot.oi.joystick.getRawAxis(1) - Robot.oi.joystick.getRawAxis(3);// value for left motors
+		double right = Robot.oi.joystick.getRawAxis(1) + Robot.oi.joystick.getRawAxis(3);// value for right motors
 		if (!OI.joystick.getRawButton(1)) {
 			left /= 2;
 			right /= 2;
