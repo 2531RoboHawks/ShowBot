@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
 	// joystick definitions
-	public Joystick joystick = new Joystick(0);
+	public static Joystick joystick = new Joystick(0);
 
 	// button definitions
 	public JoystickButton act = new JoystickButton(joystick, 1);

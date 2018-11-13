@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2531.robot.commands;
 
+import org.usfirst.frc.team2531.robot.OI;
 import org.usfirst.frc.team2531.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -19,6 +20,10 @@ public class TankDrive extends Command {
 	protected void execute() {
 		double left = Robot.oi.joystick.getRawAxis(1) - Robot.oi.joystick.getRawAxis(0);// value for left motors
 		double right = Robot.oi.joystick.getRawAxis(1) + Robot.oi.joystick.getRawAxis(0);// value for right motors
+		if (!OI.joystick.getRawButton(1)) {
+			left /= 2;
+			right /= 2;
+		}
 		if (Math.abs(left) > 0.1 || Math.abs(right) > 0.1) {// check to see if joystick is at a usable value
 			Robot.drive.tankDrive(left, right);// yes, move
 		} else {
@@ -34,7 +39,7 @@ public class TankDrive extends Command {
 	@Override
 	protected void end() {
 		Robot.drive.stop();// stop motors
-		System.out.println("-! TankDrive");//print status
+		System.out.println("-! TankDrive");// print status
 	}
 
 	@Override
