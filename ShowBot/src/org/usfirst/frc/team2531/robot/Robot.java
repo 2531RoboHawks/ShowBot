@@ -1,13 +1,13 @@
 package org.usfirst.frc.team2531.robot;
 
-import org.usfirst.frc.team2531.robot.subsystems.Drive;
+import org.usfirst.frc.team2531.robot.subsystems.DriveSystem;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 public class Robot extends TimedRobot {
 	// subsystem declarations for access
-	public static Drive drive = new Drive();
+	public static DriveSystem drive = new DriveSystem();
 	// OI class declarations
 	public static OI oi;
 
