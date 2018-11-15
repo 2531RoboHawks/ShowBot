@@ -10,7 +10,7 @@ import frclib.pid.PID;
  *
  */
 public class Turn2Angle extends Command {
-	private PID pid = new PID(0.1, 0, 0, 0);
+	private PID pid = new PID(0.05, 0, 0, 0);
 	private double angle;
 
 	public Turn2Angle(double degrees) {
@@ -34,7 +34,6 @@ public class Turn2Angle extends Command {
 	protected void execute() {
 		double outputPower = pid.compute(RobotMap.imu.getAngleZ());
 		Robot.drive.tankDrive(-outputPower, outputPower);
-
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -44,14 +43,15 @@ public class Turn2Angle extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
+		RobotMap.imu.reset();
 		Robot.drive.stop();
-		
+		System.out.println("-! Turn2Angle");
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
 		end();
-		
+
 	}
 }

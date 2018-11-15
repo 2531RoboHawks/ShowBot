@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2531.robot;
 
+import org.usfirst.frc.team2531.robot.commands.SquareDrive;
+import org.usfirst.frc.team2531.robot.commands.TimeDrive;
 import org.usfirst.frc.team2531.robot.commands.Turn2Angle;
 import org.usfirst.frc.team2531.robot.subsystems.Drive;
 
@@ -74,6 +76,8 @@ public class Robot extends TimedRobot {
 		auto = new SendableChooser<Command>();
 		auto.addDefault("None", null);
 		auto.addObject("Turn 90", new Turn2Angle(90));
+		auto.addObject("Forward 2 sec", new TimeDrive(1, 0));
+		auto.addObject("Drive in a Square", new SquareDrive());
 		SmartDashboard.putData(auto);
 
 	}
