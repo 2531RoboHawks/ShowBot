@@ -6,8 +6,7 @@ public class OI {
 	// joystick definitions
 	public static Joystick joystick = new Joystick(0);
 
-	// button definitions
-
 	public OI() {
+
 	}
 }
